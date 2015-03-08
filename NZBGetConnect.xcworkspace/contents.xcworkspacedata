@@ -64,6 +64,9 @@
       location = "group:NZBGetConnect.safariextension/images"
       name = "images">
       <FileRef
+         location = "group:nzbget_16.png">
+      </FileRef>
+      <FileRef
          location = "group:nzbget_16_blue.png">
       </FileRef>
       <FileRef
