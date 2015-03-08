@@ -18,7 +18,7 @@ function findNZBIdDog(elem) {
 	return url;
 }
 
-function addToSABnzbdFromDognzb() {
+function addToNZBGetFromDognzb() {
 	var rss_hash = $('input[name="rsstoken"]').val();
     
     if (this.nodeName.toUpperCase() == 'INPUT') {
@@ -27,7 +27,7 @@ function addToSABnzbdFromDognzb() {
         
 	    $('table.data input:checked').each(function() {
            var tr = $(this).parent().parent();
-           var a = tr.find('a[title="Send to SABnzbd"]');
+           var a = tr.find('a[title="Send to NZBGet"]');
            
            // Find the nzb id from the href
            nzburl = findNZBIdDog(a);
@@ -61,7 +61,7 @@ function addToSABnzbdFromDognzb() {
 		nzburl = findNZBIdDog(this);
 		if (nzburl) {
 			// Set the image to an in-progress image
-            var img = safari.extension.baseURI + 'images/sab2_16_fetching.png';
+            var img = safari.extension.baseURI + 'images/nzbget_16_fetching.png';
             $(this).css('background-image', 'url('+img+')');
             
 			var tr = $(this).parent().parent();
@@ -75,7 +75,7 @@ function addToSABnzbdFromDognzb() {
                         
 			//Construct message to send to background page
             var message = nzburl + " " + nzburl + " " + "addurl";
-            safari.self.tab.dispatchMessage("addToSABnzbd", message);
+            safari.self.tab.dispatchMessage("addToNZBGet", message);
             
 			return false;
 		}
@@ -86,12 +86,12 @@ function addToSABnzbdFromDognzb() {
 //Don't check page if we aren't on dognzb
 if (loc_dognzb) {
     $('div[class="dog-icon-download"]').each(function() {
-        // Change the title to "Send to SABnzbd"
-        newlink = $('<div></div>').attr("title", "Send to SABnzbd");
+        // Change the title to "Send to NZBGet"
+        newlink = $('<div></div>').attr("title", "Send to NZBGet");
         newlink.addClass('dog-icon-download');
 
         // Change the nzb download image
-        var img = safari.extension.baseURI + 'images/sab2_16.png';
+        var img = safari.extension.baseURI + 'images/nzbget_16.png';
         newlink.css('background', 'url('+img+')');
 
         // Extract NZB id from onClick and set to ID attribute
@@ -99,10 +99,10 @@ if (loc_dognzb) {
         var nzbid = nzbid.split('\'')[1];
         newlink.attr("id", nzbid);
 
-        // Change the on click handler to send to sabnzbd
+        // Change the on click handler to send to NZBGet
         // this is the <a>
         //$(this).removeAttr("onClick");
-        newlink.click(addToSABnzbdFromDognzb);
+        newlink.click(addToNZBGetFromDognzb);
         $(this).replaceWith(newlink);
     });
 

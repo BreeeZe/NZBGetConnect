@@ -10,11 +10,11 @@ else {
 }
 /**********************************************************/
 
-function addToSABnzbdFromFanzub() {
+function addToNZBGetFromFanzub() {
    var addLink = this;
     
    // Set the image to an in-progress image
-   var img = safari.extension.baseURI + 'images/sab2_16_fetching.png';
+   var img = safari.extension.baseURI + 'images/nzbget_16_fetching.png';
      
    var nzbid = this.href;
    nzbid = nzbid.substring(nzbid.indexOf('(')+1, nzbid.indexOf(')'));
@@ -33,10 +33,10 @@ function addToSABnzbdFromFanzub() {
 
 if (loc_fanzub) {
    $('table a[href*="javascript:Details"]').each(function() {
-      var img = safari.extension.baseURI + 'images/sab2_16.png';
+      var img = safari.extension.baseURI + 'images/nzbget_16.png';
       var href = $(this).attr('href');
-      var link = '<a class="addSABnzbd" href="' + href + '"><img title="Send to SABnzbd" src="' + img + '" /></a> ';
+      var link = '<a class="addNZBGet" href="' + href + '"><img title="Send to NZBGet" src="' + img + '" /></a> ';
       $(this).before(link);
-      $(this).parent().find('a[class="addSABnzbd"]').first().click(addToSABnzbdFromFanzub);
+      $(this).parent().find('a[class="addNZBGet"]').first().click(addToNZBGetFromFanzub);
    });
 }

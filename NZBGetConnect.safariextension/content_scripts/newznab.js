@@ -2,7 +2,7 @@
 (function() { // Encapsulate
 
 	var queryString = '?i=' + $('[name=UID]').val() + '&r=' + $('[name=RSSTOKEN]').val() + '&del=1',
-		oneClickImgTag = '<img src="' + chrome.extension.getURL('/images/sab2_16.png') + '" />';
+		oneClickImgTag = '<img src="' + chrome.extension.getURL('/images/nzbget_16.png') + '" />';
 			
 	function addMany(e) {
 	
@@ -14,10 +14,10 @@
 			addOne($(this).closest('tr'));
 		});
 	
-		$button.val('Sent to SABnzbd!').css('color', 'green');
+		$button.val('Sent to NZBGet!').css('color', 'green');
 	
 		setTimeout(function() {
-			$button.val('Send to SABnzbd').css('color', '#888');
+			$button.val('Send to NZBGet').css('color', '#888');
 		}, 4000);
 	
 		return false;
@@ -27,10 +27,10 @@
 	// http://nzbs.org/getnzb/abef39dde2baaad865adecb95e5eb26d
 	function addOne($tr) { 
 	
-		var $anchor = $tr.find('a.addSABnzbd');
+		var $anchor = $tr.find('a.addNZBGet');
 
         // Set the image to an in-progress image
-        var img = chrome.extension.getURL('images/sab2_16_fetching.png');
+        var img = chrome.extension.getURL('images/nzbget_16_fetching.png');
 		if ($($anchor.get(0)).find('img').length > 0) {
 			$($anchor.get(0)).find('img').attr("src", img);
 		}
@@ -42,7 +42,7 @@
 		    category = $.trim($tr.find('td:nth-child(3) a').text().match(/^\s*([^> -]+)/)[1]);
 		}
 		
-		addToSABnzbd(
+		addToNZBGet(
 			$anchor.get(0),
 			$anchor.attr('href') + queryString,
 			'addurl',
@@ -59,10 +59,10 @@
 
 			$("div.icon_nzb", $tr).each(function() {
 				var href = $("a", this).attr("href");
-				$(this).before('<div class="icon"><a class="addSABnzbd" href="' + href + '">' + oneClickImgTag + '</a></div>')
+				$(this).before('<div class="icon"><a class="addNZBGet" href="' + href + '">' + oneClickImgTag + '</a></div>')
 			});
 			
-			$tr.find('a.addSABnzbd')
+			$tr.find('a.addNZBGet')
 				.on('click', function() {
 					addOne($(this).closest('tr'));
 					return false;
@@ -77,10 +77,10 @@
 				href = $tr.find('.icon_nzb a').attr('href');
 				
 			$tr.find('td.item label')
-				.prepend('<a class="addSABnzbd" href="' + href + '">' + oneClickImgTag + '</a>')
+				.prepend('<a class="addNZBGet" href="' + href + '">' + oneClickImgTag + '</a>')
 			;
 			
-			$tr.find('a.addSABnzbd')
+			$tr.find('a.addNZBGet')
 				.on('click', function() {
 					addOne($(this).closest('tr'));
 					return false;
@@ -88,7 +88,7 @@
 			;
 		});
 	
-		// Details view: Find the download buttons, and prepend a sabnzbd button
+		// Details view: Find the download buttons, and prepend a NZBGet button
 		$.merge(
 		    $('table#detailstable tr:last').prev().find('td:nth-child(2)'), // nzb.su
 		    $('table.details tr:last td:nth-child(2)') // nzbs.org
@@ -96,13 +96,13 @@
 		
 			var $tdWithButtons = $(this),
 				href = 	$tdWithButtons.find('.icon_nzb a').attr('href'),
-				oneClickButton = '<div class="icon"><a class="addSABnzbdDetails" href="' + href + '">' + oneClickImgTag + '</a></div>';
+				oneClickButton = '<div class="icon"><a class="addNZBGetDetails" href="' + href + '">' + oneClickImgTag + '</a></div>';
 
 			$('#infohead').append(oneClickButton);
 
 			$tdWithButtons.prepend(oneClickButton)
-				.find('a.addSABnzbdDetails')
-				.add('#infohead .addSABnzbdDetails')
+				.find('a.addNZBGetDetails')
+				.add('#infohead .addNZBGetDetails')
 				.on('click', function() {
 				    var category = null;
 				    if ($('table.details tr:nth-child(2) td:nth-child(2) a').text().match(/^\s*([^< -]+)/)) { // nzbs.org
@@ -112,7 +112,7 @@
 				    } else if ($('table#detailstable tr:nth-child(4) td:nth-child(2) a').text().match(/^\s*([^< -]+)/)) { // nzb.su
 				        category = $.trim($('table#detailstable tr:nth-child(4) td:nth-child(2) a').text().match(/^\s*([^< -]+)/)[1]);
 				    }
-					addToSABnzbd(
+					addToNZBGet(
 						this,
 						$(this).attr('href')+queryString,
 						'addurl',
@@ -126,7 +126,7 @@
 		
 		// List view: add a button above the list to send selected NZBs to SAB
 		$('input.nzb_multi_operations_cart')
-			.after('<input type="button" value="Send to SABnzbd" class="multiDownload" />')
+			.after('<input type="button" value="Send to NZBGet" class="multiDownload" />')
 			.siblings('input.multiDownload')
 			.on('click', {selector: 'input:checked'}, addMany)
 		;
@@ -135,7 +135,7 @@
 		if ($('#main h1').text() === 'My Cart') {
 		
 			$('.nzb_multi_operations')
-				.prepend('<input type="button" value="Send Cart to SABnzbd" class="cartDownload" />')
+				.prepend('<input type="button" value="Send Cart to NZBGet" class="cartDownload" />')
 				.find('input.cartDownload')
 				.on('click', {selector: 'tr:gt(0)'}, addMany)
 			;

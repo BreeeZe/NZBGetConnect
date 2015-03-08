@@ -14,9 +14,9 @@ else {
 
 /**********************************************************/
 
-function addToSABnzbdFromBinsearch() {
+function addToNZBGetFromBinsearch() {
 
-    var img = safari.extension.baseURI +'images/sab2_16_fetching.png';
+    var img = safari.extension.baseURI +'images/nzbget_16_fetching.png';
     $(this).attr("src", img);
     if ($(this).find('img').length > 0) {
 	    $(this).find('img').attr("src", img);
@@ -45,11 +45,11 @@ function addToSABnzbdFromBinsearch() {
 //Don't modify page if we aren't on binsearch.com
 if (loc_binsearch) {
     $('input[name$="watchlist"]').each(function() {
-      // add button to h3 to move checked in to SABConnect
-      var img = safari.extension.baseURI + 'images/sab2_16.png';
+      // add button to h3 to move checked in to NZBGetConnect
+      var img = safari.extension.baseURI + 'images/nzbget_16.png';
       $(this).attr("src", img);
-      var link = '<input class="b addSABnzbd" type="button" value="    Download selected" style="background-image: url('+img+'); background-repeat: no-repeat; background-position: 3px 3px;" />';
+      var link = '<input class="b addNZBGet" type="button" value="    Download selected" style="background-image: url('+img+'); background-repeat: no-repeat; background-position: 3px 3px;" />';
       $(this).after(link);
-      $(this).parent().find('input[class="b addSABnzbd"]').first().click(addToSABnzbdFromBinsearch);
+      $(this).parent().find('input[class="b addNZBGet"]').first().click(addToNZBGetFromBinsearch);
    });
 }

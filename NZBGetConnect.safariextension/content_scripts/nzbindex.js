@@ -14,11 +14,11 @@ else {
 /**********************************************************/
 
 
-function addToSABnzbdFromNzbindex() {
+function addToNZBGetFromNzbindex() {
 	var addLink = this;
 
     // Set the image to an in-progress image
-    var img = safari.extension.baseURI + 'images/sab2_16_fetching.png';
+    var img = safari.extension.baseURI + 'images/nzbget_16_fetching.png';
 	
 	if ($(this).find('img').length > 0) {
 	    $(this).find('img').attr("src", img);
@@ -60,27 +60,27 @@ function addToSABnzbdFromNzbindex() {
 
 if (loc_nzbindex) {
 	$('input[value="Create NZB"]').each(function() {
-		// add button to send checked items to SABConnect
-		var img = safari.extension.baseURI + 'images/sab2_16.png';
-		var link = '<input class="addSABnzbd" type="button" value="      Download selected" style="background-image: url('+img+'); background-repeat: no-repeat; background-position: 3px 1px;" />';
+		// add button to send checked items to NZBGetConnect
+		var img = safari.extension.baseURI + 'images/nzbget_16.png';
+		var link = '<input class="addNZBGet" type="button" value="      Download selected" style="background-image: url('+img+'); background-repeat: no-repeat; background-position: 3px 1px;" />';
 		$(this).after(link);
-		$(this).parent().find('input[class="addSABnzbd"]').first().click(addToSABnzbdFromNzbindex);
+		$(this).parent().find('input[class="addNZBGet"]').first().click(addToNZBGetFromNzbindex);
 	});
 	
 	$('table a[href*="nzbindex.nl\\/download\\/"]').each(function() {
-	    var img = safari.extension.baseURI + 'images/sab2_16.png';
+	    var img = safari.extension.baseURI + 'images/nzbget_16.png';
 	    var href = $(this).attr('href');
-	    var link = '<a class="addSABnzbdOnClick" href="' + href + '"><img title="Send to SABnzbd" src="' + img + '" /></a> ';
+	    var link = '<a class="addNZBGetOnClick" href="' + href + '"><img title="Send to NZBGet" src="' + img + '" /></a> ';
 	    $(this).before(link);
 	});
 
 	$('table a[href*="nzbindex.com\\/download\\/"]').each(function() {
-	    var img = safari.extension.baseURI + 'images/sab2_16.png';
+	    var img = safari.extension.baseURI + 'images/nzbget_16.png';
 	    var href = $(this).attr('href');
-	    var link = '<a class="addSABnzbdOnClick" href="' + href + '"><img title="Send to SABnzbd" src="' + img + '" /></a> ';
+	    var link = '<a class="addNZBGetOnClick" href="' + href + '"><img title="Send to NZBGet" src="' + img + '" /></a> ';
 	    $(this).before(link);
 	});
 
-    // Change the onclick handler to send to sabnzbd
-    $('.addSABnzbdOnClick').click(addToSABnzbdFromNzbindex);
+    // Change the onclick handler to send to NZBGet
+    $('.addNZBGetOnClick').click(addToNZBGetFromNzbindex);
 }

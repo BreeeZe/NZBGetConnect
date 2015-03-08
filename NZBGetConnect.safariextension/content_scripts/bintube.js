@@ -10,9 +10,9 @@ else {
 }
 /**********************************************************/
 
-function addToSABnzbdFromBintube() {
+function addToNZBGetFromBintube() {
     // Set the image to an in-progress image
-    var img = safari.extension.baseURI + 'images/sab2_16_fetching.png';
+    var img = safari.extension.baseURI + 'images/nzbget_16_fetching.png';
     $(this).find('img').attr("src", img);
     
     var nzburl = $(this).attr('href');
@@ -33,15 +33,15 @@ function addToSABnzbdFromBintube() {
 if (loc_bintube) {
 	$('a.dlbtn').each(function() {
 		var href = $(this).attr('href');
-		var img = chrome.extension.getURL('/images/sab2_16.png');
-		var link = '<a class="addSABnzbd" href="' + href + '"><img src="' + img + '" /></a> ';
+		var img = chrome.extension.getURL('/images/nzbget_16.png');
+		var link = '<a class="addNZBGet" href="' + href + '"><img src="' + img + '" /></a> ';
 		$(this).before(link);
 		$(this).remove();
 	});
 
-	// Change the on click handler to send to sabnzbd
+	// Change the on click handler to send to NZBGet
 	// moved because the way it was the click was firing multiple times
-	$('.addSABnzbd').each(function() {
-		$(this).click(addToSABnzbdFromBintube);
+	$('.addNZBGet').each(function() {
+		$(this).click(addToNZBGetFromBintube);
 	});	
 }

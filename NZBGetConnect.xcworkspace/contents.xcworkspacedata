@@ -64,28 +64,28 @@
       location = "group:NZBGetConnect.safariextension/images"
       name = "images">
       <FileRef
-         location = "group:sab2_128.png">
+         location = "group:nzbget_16_blue.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_16.png">
+         location = "group:nzbget_16_green.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_16_blue.png">
+         location = "group:nzbget_16_red.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_16_fetching.png">
+         location = "group:nzbget_16_fetching.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_16_green.png">
+         location = "group:nzbget_32.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_16_red.png">
+         location = "group:nzbget_64.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_32.png">
+         location = "group:nzbget_128.png">
       </FileRef>
       <FileRef
-         location = "group:sab2_64.png">
+         location = "group:nzbget_icon.png">
       </FileRef>
    </Group>
 </Workspace>

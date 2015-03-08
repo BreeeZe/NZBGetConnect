@@ -16,7 +16,7 @@ function findNZBId(elem) {
     return url;
 }
 
-function addToSABnzbd() {
+function addToNZBGet() {
     if (this.nodeName.toUpperCase() == 'INPUT') {
         this.value = "Sending...";
         $(this).css('color', 'green');
@@ -26,7 +26,7 @@ function addToSABnzbd() {
 
         $('table.data input:checked').each(function() {
             var tr = $(this).parent().parent();
-            var a = tr.find('a[title="Send to SABnzbd"]');
+            var a = tr.find('a[title="Send to NZBGet"]');
 
             // Find the newzbin id from the href
             nzburl = findNZBId(a);
@@ -59,7 +59,7 @@ function addToSABnzbd() {
         nzburl = findNZBId(this);
         if (nzburl) {
             // Set the image to an in-progress image
-            var img = safari.extension.baseURI + 'images/sab2_16_fetching.png';
+            var img = safari.extension.baseURI + 'images/nzbget_16_fetching.png';
             $(this).css('background-image', 'url('+img+')');
 
             category = null;
@@ -97,19 +97,19 @@ if (location.href.indexOf(nzbSite)) {
     // List view: add a button above the list to send selected NZBs to SAB
     $('input[class="nzb_multi_operations_sab"]').each(function() {
         $(this).css('display', 'inline-block');
-        $(this).click(addToSABnzbd);
+        $(this).click(addToNZBGet);
     });
 
     $.merge($('a[title="Download Nzb"]'), $('a[title="Download NZB"]')).each(function() {
-        // Change the title to "Send to SABnzbd"
-        $(this).attr("title", "Send to SABnzbd");
+        // Change the title to "Send to NZBGet"
+        $(this).attr("title", "Send to NZBGet");
 
         // Change the nzb download image
-        var img = safari.extension.baseURI + 'images/sab2_16.png';
+        var img = safari.extension.baseURI + 'images/nzbget_16.png';
         $(this).parent().css('background-image', 'url('+img+')');
 
-        // Change the on click handler to send to sabnzbd
+        // Change the on click handler to send to NZBGet
         // this is the <a>
-        $(this).click(addToSABnzbd);
+        $(this).click(addToNZBGet);
     });
 }
