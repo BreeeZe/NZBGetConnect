@@ -40,8 +40,12 @@ function addToSABnzbdFromDognzb() {
                nzburl += '/' + rss_hash;
                                            
                //Construct message to send to background page
-               var message = nzburl + " " + nzburl + " " + "addurl";
-               safari.self.tab.dispatchMessage("addToSABnzbd", message);
+               var message = {
+                   callback : "setIconResult",
+                   arguments : [nzburl],
+                   reference : nzburl
+               };
+               safari.self.tab.dispatchMessage("Append", message);
            }
         });
         

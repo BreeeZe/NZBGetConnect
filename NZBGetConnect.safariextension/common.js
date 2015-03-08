@@ -1,69 +1,79 @@
-function checkEndSlash(input) {
-    if (input.charAt(input.length-1) == '/') {
-        return input;
-    } else {
-        var output = input+'/';
-        return output;
-    }
-}
+String.prototype.format = function () {
+    var args = arguments;
+    return this.replace(/\{(\d+)\}/g, function (m, n) { return args[n]; });
+};
 
-function constructApiUrl() {
-    return checkEndSlash(safari.extension.settings.getItem("nzbget_url")) + 'jsonrpc';
-}
+String.prototype.addEndSlash = function() {
+    return this.charAt(this.length-1) == '/' ? this : this+'/';
+};
 
-function addToSABnzbd(addLink, nzb, mode) {
-    var default_cat = safari.extension.settings.getItem("default_category");
-    var username = safari.extension.settings.getItem("username");
-    var password = safari.extension.secureSettings.getItem("password");
-    RPC.withCredentials = false;
-    if(username) {
-        RPC.withCredentials = true;
-        RPC.userName = username;
-        RPC.passWord = password;
-    }
-    RPC.rpcUrl = constructApiUrl();
-    var data = ['', nzb, default_cat, 0, false, false, '', 0, "SCORE"];
-    alert("adding : " + nzb);
-    RPC.call('append', data,
-             function(res){
-                safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("success", addLink);
-             },
-             function(res){
-                safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("error", addLink);
-             });
-    //On success the image doesn't get updated
-//
-//    var sabApiUrl = constructApiUrl();
-//    var data = constructApiPost();
-//    
-//    data.mode = mode;
-//    data.name = nzb;
-//    
-//    $.ajax({
-//        type: "GET",
-//        url: sabApiUrl,
-//        dataType: "JSON",
-//        data: data,
-//        success: function(data){
-//           safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("success", addLink);
-//        },
-//        error:function(){
-//           safari.application.activeBrowserWindow.activeTab.page.dispatchMessage("error", addLink);
-//        }
-//    });
-}
+var NZBGetConnect =
+    (new function($) {
+    
+    this.Category = function() {
+        return safari.extension.settings.getItem("default_category");
+    };
+    this.Username = function() {
+        return safari.extension.settings.getItem("username");
+    };
+    this.Password = function() {
+        return safari.extension.secureSettings.getItem("password");
+    };
+    this.Url = function() {
+        return safari.extension.settings.getItem("nzbget_url").addEndSlash() + 'jsonrpc';
+    };
+    this.Append = function(nzbUrl, callback) {
+        NZBGetConnect.callApi("append", ['', nzbUrl, NZBGetConnect.Category(), 0, false, true, '', 0, 'force'], callback);
+    };
+    this.callApi = function(method, data, callback) {
+        var request = JSON.stringify({nocache: new Date().getTime(), method: method, params: data});
+        console.log("request : "+request);
+     
+        var xhr = new XMLHttpRequest();
+        xhr.open('post', this.Url());
+        if(this.Username()) {
+            xhr.withCredentials = 'true';
+            xhr.setRequestHeader('Authorization', 'Basic ' + window.btoa(this.Username()+':'+this.Password()));
+        }
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4) {
+                var result = false;
+                var message;
+                if (xhr.status === 200) {
+                    if (xhr.responseText != '') {
+                        try {
+                            var res = JSON.parse(xhr.responseText);
+                        } catch (e) {
+                            message = e;
+                        }
+                        if (res) {
+                            if (res.error == null) {
+                                result = true;
+                                message = res.result;
+                            } else {
+                                message = result.error.message + '\n\rRequest: ' + request;
+                            }
+                        }
+                    } else {
+                        message = 'No response received.';
+                    }
+                } else if (xhr.status === 0) {
+                    message = 'Cannot connect';
+                } else {
+                    message = 'Invalid Status: ' + xhr.status;
+                }
+                callback(result, message);
+            }
+        };
+    xhr.send(request);
+    };
+}(jQuery));
 
-//Function to respond and pass message from injected javascript
-function respondToMessage(theMessageEvent) {
-    if(theMessageEvent.name === "addToSABnzbd")
-    {
-       var message_array = theMessageEvent.message.split(" ");
-       var addLink = message_array[0];
-       var nzbid = message_array[1];
-       var mode = message_array[2];
-       addToSABnzbd(addLink,nzbid,mode);
-    }
-}
-
-//Add Listener to respond to injected javascript
-safari.application.addEventListener("message",respondToMessage,false);
+safari.application.addEventListener("message",function(msg){
+    data = msg.message;
+    NZBGetConnect[msg.name].apply(this, data.arguments.concat([function(result, message){
+        safari.application.activeBrowserWindow.activeTab.page.dispatchMessage(data.callback,{
+            arguments : [data.reference, result, message]
+        });
+    }]));
+},false);

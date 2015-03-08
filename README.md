@@ -1,9 +1,9 @@
-SABConnect for Safari
+NZBGetConnect
 =====================
 
-SABConnect for Safari is a port of the popular SABConnect extension from Google Chrome.
+NZBGetConnect is a modification of SabConnect for Safari (which is a port of the popular SABConnect extension from Google Chrome) so it functions with NZBGet instead of SABnzbd.
 
-It replaces the "Download NZB" with a "Send to SABnzbd" button which will automatically add the nzb to your download queue.
+It replaces the "Download NZB" with a "Send to NZBGet" button which will automatically add the nzb to your download queue.
 
 It currently supports:
 

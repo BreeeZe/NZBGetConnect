@@ -28,10 +28,14 @@ function addToSABnzbdFromBinsearch() {
 	var a = document.getElementsByTagName('input');
 	for (var i=0, len=a.length; i<len; ++i) {
 		if (a[i].type == 'checkbox' && a[i].checked) {         
-            var message =  'http://binsearch.info/?action=nzb&' + a[i].name + '=1' + " " +
-                           'http://binsearch.info/?action=nzb&' + a[i].name + '=1' + " " +
-                           "addurl";
-            safari.self.tab.dispatchMessage("addToSABnzbd", message);
+            var nzburl =  'http://binsearch.info/?action=nzb&' + a[i].name + '=1';
+            //Construct message to send to background page
+            var message = {
+                callback : "setIconResult",
+                arguments : [nzburl],
+                reference : nzburl
+            };
+            safari.self.tab.dispatchMessage("Append", message);
 		}
 	}
 	return false;

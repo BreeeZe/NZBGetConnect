@@ -20,9 +20,13 @@ function addToSABnzbdFromFanzub() {
    nzbid = nzbid.substring(nzbid.indexOf('(')+1, nzbid.indexOf(')'));
    var nzburl = 'http://www.fanzub.com/nzb/' + nzbid;
 
-   //Construct message to send to background page
-   var message = addLink + " " + nzburl + " " + "addurl";
-   safari.self.tab.dispatchMessage("addToSABnzbd", message);
+    //Construct message to send to background page
+    var message = {
+        callback : "setIconResult",
+        arguments : [nzburl],
+        reference : addLink.href
+    };
+    safari.self.tab.dispatchMessage("Append", message);
 
    return false;
 }

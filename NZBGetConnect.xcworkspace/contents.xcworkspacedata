@@ -8,9 +8,6 @@
       location = "group:NZBGetConnect.safariextension/common.js">
    </FileRef>
    <FileRef
-      location = "group:NZBGetConnect.safariextension/util.js">
-   </FileRef>
-   <FileRef
       location = "group:NZBGetConnect.safariextension/Settings.plist">
    </FileRef>
    <FileRef

@@ -25,8 +25,12 @@ function addToSABnzbdFromNzbindex() {
 	    var nzburl = $(this).attr('href');
 
 		//Construct message to send to background page
-		var message = addLink + " " + nzburl + " " + "addurl";
-		safari.self.tab.dispatchMessage("addToSABnzbd", message);
+        var message = {
+            callback : "setIconResult",
+            arguments : [nzburl],
+            reference : addLink.href
+        };
+		safari.self.tab.dispatchMessage("Append", message);
 	} else {
 		$(this).css('background-image', 'url('+img+')');
 
@@ -40,9 +44,13 @@ function addToSABnzbdFromNzbindex() {
 
 				var nzburl = $($(a[i]).parent().parent().find('td')[1]).find('a')[1];
 
-				//Construct message to send to background page
-				var message = nzburl + " " + nzburl + " " + "addurl";
-				safari.self.tab.dispatchMessage("addToSABnzbd", message);
+                //Construct message to send to background page
+                var message = {
+                    callback : "setIconResult",
+                    arguments : [nzburl],
+                    reference : nzburl
+                };
+                safari.self.tab.dispatchMessage("Append", message);
 			}
 		}
 	}

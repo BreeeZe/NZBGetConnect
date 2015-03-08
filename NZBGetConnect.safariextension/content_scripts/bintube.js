@@ -19,8 +19,12 @@ function addToSABnzbdFromBintube() {
     var addLink = this;
     	
     //Construct message to send to background page
-    var message = addLink + " " + nzburl + " " + "addurl";
-    safari.self.tab.dispatchMessage("addToSABnzbd", message);
+    var message = {
+        callback : "setIconResult",
+        arguments : [nzburl],
+        reference : nzburl
+    };
+    safari.self.tab.dispatchMessage("Append", message);
     
     return false;
 }

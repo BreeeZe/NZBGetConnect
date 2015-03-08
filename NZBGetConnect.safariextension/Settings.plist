@@ -4,7 +4,7 @@
 <array>
 	<dict>
 		<key>DefaultValue</key>
-		<string>http://localhost:8989</string>
+		<string>http://localhost:6789</string>
 		<key>Key</key>
 		<string>nzbget_url</string>
 		<key>Title</key>

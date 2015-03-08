@@ -38,9 +38,13 @@ function addToSABnzbd() {
                 // Add the authentication to the link about to be fetched
                 addLink += '?i=' + user + '&r=' + rss_hash;
 
-            // Construct message to send to background page
-            var message = addLink + " " + addLink + " " + "addurl";
-            safari.self.tab.dispatchMessage("addToSABnzbd", message);
+               //Construct message to send to background page
+               var message = {
+                   callback : "setIconResult",
+                   arguments : [addLink],
+                   reference : addLink
+               };
+               safari.self.tab.dispatchMessage("Append", message);
             }
         });
         this.value = 'Sent to SAB!';
@@ -75,9 +79,13 @@ function addToSABnzbd() {
             // Add the authentication to the link about to be fetched
             addLink += '?i=' + user + '&r=' + rss_hash;
 
-         // Construct message to send to background page
-         var message = addLink + " " + addLink + " " + "addurl";
-         safari.self.tab.dispatchMessage("addToSABnzbd", message);
+            //Construct message to send to background page
+            var message = {
+                callback : "setIconResult",
+                arguments : [addLink],
+                reference : addLink
+            };
+            safari.self.tab.dispatchMessage("Append", message);
 
             return false;
         }
