@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Author</key>
+	<string>Jeroen Versteege</string>
+	<key>Builder Version</key>
+	<string>10600.5.6</string>
+	<key>CFBundleDisplayName</key>
+	<string>NZBGetConnect</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.versteege.sabconnect</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleShortVersionString</key>
+	<string>2.7</string>
+	<key>CFBundleVersion</key>
+	<string>2.7</string>
+	<key>Chrome</key>
+	<dict>
+		<key>Global Page</key>
+		<string>background.html</string>
+	</dict>
+	<key>Content</key>
+	<dict>
+		<key>Scripts</key>
+		<dict>
+			<key>End</key>
+			<array>
+				<string>common_injected.js</string>
+				<string>content_scripts/binsearch.js</string>
+				<string>content_scripts/bintube.js</string>
+				<string>content_scripts/dognzb.js</string>
+				<string>content_scripts/fanzub.js</string>
+				<string>content_scripts/nzb.su.js</string>
+				<string>content_scripts/nzbclub.js</string>
+				<string>content_scripts/nzbindex.js</string>
+				<string>content_scripts/nzbs.in.js</string>
+				<string>content_scripts/nzbsorg.js</string>
+			</array>
+			<key>Start</key>
+			<array>
+				<string>jquery-1.4.2.min.js</string>
+			</array>
+		</dict>
+		<key>Stylesheets</key>
+		<array>
+			<string>css/common.css</string>
+		</array>
+	</dict>
+	<key>Description</key>
+	<string>NZBGetConnect based on Kalen Hansen's port of SABConnect for Safari</string>
+	<key>DeveloperIdentifier</key>
+	<string>XMHNA69F7E</string>
+	<key>ExtensionInfoDictionaryVersion</key>
+	<string>1.0</string>
+	<key>Permissions</key>
+	<dict>
+		<key>Website Access</key>
+		<dict>
+			<key>Allowed Domains</key>
+			<array>
+				<string>*.binsearch.info</string>
+				<string>*.binsearch.net</string>
+				<string>*.bintube.com</string>
+				<string>*.dognzb.cr</string>
+				<string>*.fanzub.com</string>
+				<string>*.nzb.su</string>
+				<string>*.nzbclub.com</string>
+				<string>*.nzbindex.com</string>
+				<string>*.nzbindex.nl</string>
+				<string>*.nzbs.in</string>
+				<string>*.nzbs.org</string>
+			</array>
+			<key>Include Secure Pages</key>
+			<true/>
+			<key>Level</key>
+			<string>Some</string>
+		</dict>
+	</dict>
+	<key>Update Manifest URL</key>
+	<string>http://nzbgetconnect-safari-update.versteege.com</string>
+	<key>Website</key>
+	<string>http://nzbgetconnect.versteege.com</string>
+</dict>
+</plist>

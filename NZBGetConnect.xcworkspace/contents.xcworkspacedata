@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/Info.plist">
+   </FileRef>
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/common.js">
+   </FileRef>
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/util.js">
+   </FileRef>
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/Settings.plist">
+   </FileRef>
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/global.html">
+   </FileRef>
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/common_injected.js">
+   </FileRef>
+   <Group
+      location = "group:NZBGetConnect.safariextension/content_scripts"
+      name = "content_scripts">
+      <FileRef
+         location = "group:binsearch.js">
+      </FileRef>
+      <FileRef
+         location = "group:bintube.js">
+      </FileRef>
+      <FileRef
+         location = "group:dognzb.js">
+      </FileRef>
+      <FileRef
+         location = "group:fanzub.js">
+      </FileRef>
+      <FileRef
+         location = "group:newznab.js">
+      </FileRef>
+      <FileRef
+         location = "group:nzb.su.js">
+      </FileRef>
+      <FileRef
+         location = "group:nzbclub.js">
+      </FileRef>
+      <FileRef
+         location = "group:nzbindex.js">
+      </FileRef>
+      <FileRef
+         location = "group:nzbs.in.js">
+      </FileRef>
+      <FileRef
+         location = "group:nzbsorg.js">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:NZBGetConnect.safariextension/css"
+      name = "css">
+      <FileRef
+         location = "group:common.css">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:NZBGetConnect.safariextension/Icon.png">
+   </FileRef>
+   <Group
+      location = "group:NZBGetConnect.safariextension/images"
+      name = "images">
+      <FileRef
+         location = "group:sab2_128.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_16.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_16_blue.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_16_fetching.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_16_green.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_16_red.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_32.png">
+      </FileRef>
+      <FileRef
+         location = "group:sab2_64.png">
+      </FileRef>
+   </Group>
+</Workspace>

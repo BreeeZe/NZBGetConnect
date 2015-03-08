@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>5B71DCF9-7042-4545-AD7E-DCBCD4B2EC0E</string>
+	<key>IDESourceControlProjectName</key>
+	<string>NZBGetConnect</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>24B11D8879ACF23CE34F4C479E55312203CD5741</key>
+		<string>https://github.com/Nomar383/SABConnect-for-Safari.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>NZBGetConnect.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>24B11D8879ACF23CE34F4C479E55312203CD5741</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/Nomar383/SABConnect-for-Safari.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>24B11D8879ACF23CE34F4C479E55312203CD5741</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>24B11D8879ACF23CE34F4C479E55312203CD5741</string>
+			<key>IDESourceControlWCCName</key>
+			<string>NZBGetConnect-for-Safari</string>
+		</dict>
+	</array>
+</dict>
+</plist>
