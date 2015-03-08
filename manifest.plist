@@ -6,15 +6,15 @@
 	<array>
 		<dict>
 			<key>CFBundleIdentifier</key>
-			<string>com.kalenhansen.sabconnect</string>
+			<string>com.versteege.nzbgetconnect</string>
 			<key>Developer Identifier</key>
-			<string>JXH3CHHWTG</string>
+			<string>XMHNA69F7E</string>
 			<key>CFBundleVersion</key>
-			<string>2.7</string>
+			<string>1.0</string>
 			<key>CFBundleShortVersionString</key>
-			<string>2.7</string>
+			<string>1.0</string>
 			<key>URL</key>
-			<string>http://sabconnect-safari.kalenhansen.com</string>
+			<string>http://nzbgetconnect.versteege.com</string>
 		</dict>
 	</array>
 </dict>
