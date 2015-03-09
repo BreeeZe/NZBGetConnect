@@ -1,16 +1,17 @@
 safari.self.addEventListener("message", function(msg){
-     setIconResult.invoke(this,msg.message.arguments);
-     }, false);
-
-function setIconResult(reference, result, message) {
+    var reference = $(msg.message.arguments[0]);
+    var result = msg.message.arguments[1];
+    var message = msg.message.arguments[2];
     if (result) {
         var img = safari.extension.baseURI + 'images/nzbget_16_green.png';
-        $("a[href=\"" +reference+ "\"]").find('img').attr("src", img);
+        if(reference)
+            reference.find('img').attr("src", img);
     } else {
         var img = safari.extension.baseURI + 'images/nzbget_16_red.png';
-        $("a[href=\"" +reference+ "\"]").find('img').attr("src", img);
+        if(reference)
+            reference.find('img').attr("src", img);
         if(message) {
             alert(message);
         }
     }
-}
+});

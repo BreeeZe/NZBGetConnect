@@ -65,7 +65,7 @@
 		</dict>
 	</dict>
 	<key>Update Manifest URL</key>
-	<string>http://nzbgetconnect-safari-update.versteege.com</string>
+	<string>http://update.nzbgetconnect.versteege.com/manifest.plist</string>
 	<key>Website</key>
 	<string>http://nzbgetconnect.versteege.com</string>
 </dict>

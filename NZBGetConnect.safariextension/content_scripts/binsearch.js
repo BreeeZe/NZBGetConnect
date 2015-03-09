@@ -18,8 +18,10 @@ function addToNZBGetFromBinsearch() {
 
     var img = safari.extension.baseURI +'images/nzbget_16_fetching.png';
     $(this).attr("src", img);
+    var ref = null;
     if ($(this).find('img').length > 0) {
 	    $(this).find('img').attr("src", img);
+        ref = ".addNZBGet"
 	} else {
 		$(this).css('background-image', 'url('+img+')');
 	}
@@ -33,7 +35,7 @@ function addToNZBGetFromBinsearch() {
             var message = {
                 callback : "setIconResult",
                 arguments : [nzburl],
-                reference : nzburl
+                reference : ref
             };
             safari.self.tab.dispatchMessage("Append", message);
 		}

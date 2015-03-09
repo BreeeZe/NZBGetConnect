@@ -43,17 +43,17 @@ function addToNZBGetFromDognzb() {
                var message = {
                    callback : "setIconResult",
                    arguments : [nzburl],
-                   reference : nzburl
+                   reference : "a[href=\"" + a.href + "\"]"
                };
                safari.self.tab.dispatchMessage("Append", message);
            }
         });
         
-		this.value = 'Sent to SAB!';
+		this.value = 'Sent to NZBGet!';
 		$(this).css('color', 'red');
 		sendToSabButton = this;
 		
-		setTimeout(function(){ sendToSabButton.value = 'Send to SAB'; $(sendToSabButton).css('color', '#888'); }, 4000);
+		setTimeout(function(){ sendToSabButton.value = 'Send to NZBGet'; $(sendToSabButton).css('color', '#888'); }, 4000);
         
 		return false;
 	} else {
@@ -73,9 +73,12 @@ function addToNZBGetFromDognzb() {
 			// Add the authentication to the link about to be fetched
 			nzburl += '/' + rss_hash;
                         
-			//Construct message to send to background page
-            var message = nzburl + " " + nzburl + " " + "addurl";
-            safari.self.tab.dispatchMessage("addToNZBGet", message);
+            var message = {
+                callback : "setIconResult",
+                arguments : [nzburl],
+                reference : null
+            };
+            safari.self.tab.dispatchMessage("Append", message);
             
 			return false;
 		}

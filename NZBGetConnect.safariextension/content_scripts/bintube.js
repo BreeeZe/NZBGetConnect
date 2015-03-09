@@ -22,7 +22,7 @@ function addToNZBGetFromBintube() {
     var message = {
         callback : "setIconResult",
         arguments : [nzburl],
-        reference : nzburl
+        reference : "a[href=\"" + nzburl + "\"]"
     };
     safari.self.tab.dispatchMessage("Append", message);
     

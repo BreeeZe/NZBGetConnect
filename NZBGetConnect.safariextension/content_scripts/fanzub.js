@@ -24,7 +24,7 @@ function addToNZBGetFromFanzub() {
     var message = {
         callback : "setIconResult",
         arguments : [nzburl],
-        reference : addLink.href
+        reference : "a[href=\"" + nzbid + "\"]"
     };
     safari.self.tab.dispatchMessage("Append", message);
 

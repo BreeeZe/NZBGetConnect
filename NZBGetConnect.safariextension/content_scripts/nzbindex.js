@@ -28,7 +28,7 @@ function addToNZBGetFromNzbindex() {
         var message = {
             callback : "setIconResult",
             arguments : [nzburl],
-            reference : addLink.href
+            reference : "a[href=\"" + addLink.href + "\"]"
         };
 		safari.self.tab.dispatchMessage("Append", message);
 	} else {
@@ -48,7 +48,7 @@ function addToNZBGetFromNzbindex() {
                 var message = {
                     callback : "setIconResult",
                     arguments : [nzburl],
-                    reference : nzburl
+                    reference : "a[href=\"" + nzburl + "\"]"
                 };
                 safari.self.tab.dispatchMessage("Append", message);
 			}

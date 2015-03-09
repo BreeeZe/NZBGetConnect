@@ -22,8 +22,11 @@ var NZBGetConnect =
     this.Url = function() {
         return safari.extension.settings.getItem("nzbget_url").addEndSlash() + 'jsonrpc';
     };
+    this.AddPauzed = function() {
+        return safari.extension.settings.getItem("add_pauzed");
+    };
     this.Append = function(nzbUrl, callback) {
-        NZBGetConnect.callApi("append", ['', nzbUrl, NZBGetConnect.Category(), 0, false, true, '', 0, 'force'], callback);
+        NZBGetConnect.callApi("append", ['', nzbUrl, NZBGetConnect.Category(), 0, false, NZBGetConnect.AddPauzed(), '', 0, 'force'], callback);
     };
     this.callApi = function(method, data, callback) {
         var request = JSON.stringify({nocache: new Date().getTime(), method: method, params: data});
