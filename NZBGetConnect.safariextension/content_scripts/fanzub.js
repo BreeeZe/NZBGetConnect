@@ -23,7 +23,7 @@ function addToNZBGetFromFanzub() {
     //Construct message to send to background page
     var message = {
         callback : "setIconResult",
-        arguments : [nzburl],
+        arguments : [nzburl,''],
         reference : "a[href=\"" + nzbid + "\"]"
     };
     safari.self.tab.dispatchMessage("Append", message);

@@ -21,7 +21,7 @@ function addToNZBGetFromBintube() {
     //Construct message to send to background page
     var message = {
         callback : "setIconResult",
-        arguments : [nzburl],
+        arguments : [nzburl,''],
         reference : "a[href=\"" + nzburl + "\"]"
     };
     safari.self.tab.dispatchMessage("Append", message);

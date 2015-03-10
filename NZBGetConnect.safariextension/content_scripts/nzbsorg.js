@@ -51,7 +51,7 @@ function addToNZBGetFromBetaNZBsDOTorg() {
                //Construct message to send to background page
                var message = {
                    callback : "setIconResult",
-                   arguments : [nzburl],
+                   arguments : [nzburl,''],
                    reference : nzburl
                    };
                safari.self.tab.dispatchMessage("Append", message);
@@ -92,7 +92,7 @@ function addToNZBGetFromBetaNZBsDOTorg() {
             //Construct message to send to background page
             var message = {
                 callback : "setIconResult",
-                arguments : [nzburl],
+                arguments : [nzburl,''],
                 reference : nzburl
             };
             safari.self.tab.dispatchMessage("Append", message);

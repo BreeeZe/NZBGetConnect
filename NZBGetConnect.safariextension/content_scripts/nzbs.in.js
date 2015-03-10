@@ -41,7 +41,7 @@ function addToNZBGet() {
                //Construct message to send to background page
                var message = {
                    callback : "setIconResult",
-                   arguments : [addLink],
+                   arguments : [addLink,''],
                    reference : addLink
                };
                safari.self.tab.dispatchMessage("Append", message);
@@ -82,7 +82,7 @@ function addToNZBGet() {
             //Construct message to send to background page
             var message = {
                 callback : "setIconResult",
-                arguments : [addLink],
+                arguments : [addLink,''],
                 reference : addLink
             };
             safari.self.tab.dispatchMessage("Append", message);

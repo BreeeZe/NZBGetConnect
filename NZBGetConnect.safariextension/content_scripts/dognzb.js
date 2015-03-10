@@ -42,7 +42,7 @@ function addToNZBGetFromDognzb() {
                //Construct message to send to background page
                var message = {
                    callback : "setIconResult",
-                   arguments : [nzburl],
+                   arguments : [nzburl,''],
                    reference : "a[href=\"" + a.href + "\"]"
                };
                safari.self.tab.dispatchMessage("Append", message);
@@ -75,7 +75,7 @@ function addToNZBGetFromDognzb() {
                         
             var message = {
                 callback : "setIconResult",
-                arguments : [nzburl],
+                arguments : [nzburl,''],
                 reference : null
             };
             safari.self.tab.dispatchMessage("Append", message);
