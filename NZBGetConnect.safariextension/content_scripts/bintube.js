@@ -31,6 +31,7 @@ function addToNZBGetFromBintube() {
 
 //Don't modify page if we aren't on bintube.com
 if (loc_bintube) {
+    console.info("Parsing bintube");
 	$('a.dlbtn').each(function() {
 		var href = $(this).attr('href');
 		var img = chrome.extension.getURL('/images/nzbget_16.png');

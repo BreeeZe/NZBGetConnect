@@ -104,6 +104,7 @@ function addToNZBGetFromBetaNZBsDOTorg() {
 
 //Don't check page if we aren't on nzbs.org
 if (loc_betanzbsorg) {
+    console.info("Parsing nzbs.org");
 	// List view: add a button above the list to send selected NZBs to SAB
 	$('input[class="nzb_multi_operations_sab"]').each(function() {
 		$(this).css('display', 'inline-block');

@@ -1,5 +1,6 @@
 //Don't modify page if we aren't on binsearch.com
 if (location.href.indexOf("binsearch.info") != -1 || location.href.indexOf("binsearch.net") != -1) {
+    console.info("Parsing binsearch");
     $('input[name$="watchlist"]').each(function() {
       // add button to h3 to move checked in to NZBGetConnect
       var img = safari.extension.baseURI + 'images/nzbget_16.png';
@@ -17,7 +18,7 @@ function addToNZBGetFromBinsearch() {
         var chk = $(this);
         var id = chk.attr("name");
         var nzburl =  'http://binsearch.info/?action=nzb&' + id + '=1';
-        var text = chk.closest("TD").next().find(".s").text();
+        var text = chk.closest("TD").next().find(".s").text().split('"')[1];
                                                             
         var td = chk.closest("TD").prev();
         var imgNode = td.find("img");

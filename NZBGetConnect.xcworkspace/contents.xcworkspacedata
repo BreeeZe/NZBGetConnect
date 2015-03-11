@@ -26,16 +26,7 @@
          location = "group:bintube.js">
       </FileRef>
       <FileRef
-         location = "group:dognzb.js">
-      </FileRef>
-      <FileRef
-         location = "group:fanzub.js">
-      </FileRef>
-      <FileRef
          location = "group:newznab.js">
-      </FileRef>
-      <FileRef
-         location = "group:nzb.su.js">
       </FileRef>
       <FileRef
          location = "group:nzbclub.js">

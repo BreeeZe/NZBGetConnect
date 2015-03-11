@@ -50,5 +50,6 @@ function handleAllDownloadLinks() {
 
 //Don't modify page if we aren't on nzbclub.com
 if (loc_nzbclub) {
+    console.info("Parsing nzbclub");
     handleAllDownloadLinks();
 }

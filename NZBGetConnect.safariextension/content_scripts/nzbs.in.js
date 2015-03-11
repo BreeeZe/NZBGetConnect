@@ -4,7 +4,7 @@
 var nzburl;
 var addLink;
 var category = null;
-var nzbSite = 'https://www.nzbs.in'; // Change to your newznab instance
+var nzbSite = null;//'nzbgeek.info'; // Change to your newznab instance
 
 function findNZBId(elem) {
     var url = $(elem).attr('href');
@@ -60,7 +60,7 @@ function addToNZBGet() {
         if (nzburl) {
             // Set the image to an in-progress image
             var img = safari.extension.baseURI + 'images/nzbget_16_fetching.png';
-            $(this).css('background-image', 'url('+img+')');
+            $(this).css('background-image', 'url('+img+')').css('background-repeat','no-repeat');
 
             category = null;
             if ($('#nzb_multi_operations_form').length == 0) {
@@ -93,7 +93,8 @@ function addToNZBGet() {
 }
 
 // Only run for specified domain
-if (location.href.indexOf(nzbSite)) {
+if (location.href.indexOf(nzbSite) > -1) {
+    console.info("Parsing "+nzbSite);
     // List view: add a button above the list to send selected NZBs to SAB
     $('input[class="nzb_multi_operations_sab"]').each(function() {
         $(this).css('display', 'inline-block');
@@ -106,7 +107,7 @@ if (location.href.indexOf(nzbSite)) {
 
         // Change the nzb download image
         var img = safari.extension.baseURI + 'images/nzbget_16.png';
-        $(this).parent().css('background-image', 'url('+img+')');
+        $(this).parent().css('background-image', 'url('+img+')').css('background-repeat','no-repeat');;
 
         // Change the on click handler to send to NZBGet
         // this is the <a>

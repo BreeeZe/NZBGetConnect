@@ -59,6 +59,7 @@ function addToNZBGetFromNzbindex() {
 }
 
 if (loc_nzbindex) {
+    console.info("Parsing nzbindex");
 	$('input[value="Create NZB"]').each(function() {
 		// add button to send checked items to NZBGetConnect
 		var img = safari.extension.baseURI + 'images/nzbget_16.png';

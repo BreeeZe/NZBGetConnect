@@ -15,7 +15,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.1</string>
 	<key>CFBundleVersion</key>
-	<string>1.1.1</string>
+	<string>1.1.2</string>
 	<key>Chrome</key>
 	<dict>
 		<key>Global Page</key>
@@ -29,9 +29,6 @@
 			<array>
 				<string>common_injected.js</string>
 				<string>content_scripts/bintube.js</string>
-				<string>content_scripts/dognzb.js</string>
-				<string>content_scripts/fanzub.js</string>
-				<string>content_scripts/nzb.su.js</string>
 				<string>content_scripts/nzbclub.js</string>
 				<string>content_scripts/nzbindex.js</string>
 				<string>content_scripts/nzbs.in.js</string>
